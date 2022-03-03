@@ -33,6 +33,7 @@ function buildTable(data) {
     tbody.html("");
 }
 
+
 // CREATE A FOREACH:
 // "data" is an object that references the data being imported.  // This new code chained a "for" loop to our data. 
 // "forEach" the keywords to create a "for" loop in JavaScript.
@@ -64,6 +65,64 @@ data.forEach((dataRow) => {
       cell.text(val);
       }
     );
-  });
+});
+// With the above function we have: Looped through each object in the array/  Appended a row to the HTML table/  Added each value from the objhect into a cell.
 
-  // With the above function we have: Looped through each object in the array/  Appended a row to the HTML table/  Added each value from the objhect into a cell.
+// ADD FILTERS:
+// We are adding a date function, so we'll need to create a couple variables to hold our "date" data for filtered and unfiltered.
+
+// In code below ".select()" will select the first elemt that matches our selector string "datetime".  The "select string"
+// is what we are tellig D3.js to look for.
+
+// The chaining of ".property("value");" to "d3.selet" we are telling D3 to not only look for where our date values are stored 
+// on the webpage, but to grab that info and hold it in the "date" variable.
+
+// we need to set a dfault filter and save it to new variable. The default filter will actually be the original table data
+// which will allow users to refine their search on their own time. This is the "let filteredData = tableData;" line.
+
+// Setting the filteredData variable to raw data, we are basically using a blank slate.  This function we are working on
+// now will run each time the filter button is clicked on the website.  If no date has been entered as a filter all 
+// the data will be returned instead.
+
+function handleClick() {
+   // Grab the datetime value from the filter
+   let date = d3.select("#datetime").property("value");
+   let filteredData = tableData;
+
+
+
+//IF STATEMENTS:
+// if-statement syntax:
+//if ( check for condition ) { code to execute }
+//pseudocode practice
+///if (a date is entered) {
+///    Filter the "default" data to show only the date intered
+///};
+//  Basically the above coe is asking JavaScript to check for a date.  If date is present we want it to return only
+//  the data with that date.
+
+   // Check to see if a date was entered and filter the
+  // data using that date.
+  if (date) {
+    // Apply `filter` to the table data to only keep the
+    // rows where the `datetime` value matches the filter value
+    filteredData = filteredData.filter(row => row.datetime === date);
+  }
+
+// Code above, the line "row => row.datetime === date);" apples the filter to table data.  It is saying "Show only the rows
+// where the date is equal to the date filter we created above."  The triple equal sign "===" is testing for equality,
+// the date in table has to match our filter exactly!
+
+//BUILD FILTERED TABLE
+
+   // Rebuild the table using the filtered data
+  // @NOTE: If no date was entered, then filteredData will
+  // just be the original tableData.
+  buildTable(filteredData);
+}
+// Attach an event to listen for the form button
+d3.selectAll("#filter-btn").on("click", handleClick);
+
+// FINAL STEPS:
+// Build the table when the page loads
+buildTable(tableData);
