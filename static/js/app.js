@@ -125,4 +125,4 @@ d3.selectAll("#filter-btn").on("click", handleClick);
 
 // FINAL STEPS:
 // Build the table when the page loads
-buildTable(tableData);
+//buildTable(tableData);
