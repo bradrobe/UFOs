@@ -31,7 +31,15 @@ doubleAddition = (c, d) => addition(c, d) * 2;
 // We will use standard JavaScript "function" instead of "arrow function" because we will bu putting a function within a function.
 function buildTable(data) {
     tbody.html("");
-}
+    data.forEach((dataRow) => {
+      let row = tbody.append("tr");
+      Object.values(dataRow).forEach((val) => {
+        let cell = row.append("td");
+        cell.text(val);
+        }
+      );
+  });}
+
 
 
 // CREATE A FOREACH:
@@ -58,14 +66,6 @@ function buildTable(data) {
 ///    cell.text(val);
 ///});
 
-data.forEach((dataRow) => {
-    let row = tbody.append("tr");
-    Object.values(dataRow).forEach((val) => {
-      let cell = row.append("td");
-      cell.text(val);
-      }
-    );
-});
 // With the above function we have: Looped through each object in the array/  Appended a row to the HTML table/  Added each value from the objhect into a cell.
 
 // ADD FILTERS:
@@ -103,12 +103,12 @@ function handleClick() {
 
    // Check to see if a date was entered and filter the
   // data using that date.
-  if (date) {
-    // Apply `filter` to the table data to only keep the
-    // rows where the `datetime` value matches the filter value
-    filteredData = filteredData.filter(row => row.datetime === date);
+    if (date) {
+      filteredData = filteredData.filter(row => row.datetime === date);
   }
 
+// Apply `filter` to the table data to only keep the
+// rows where the `datetime` value matches the filter value
 // Code above, the line "row => row.datetime === date);" apples the filter to table data.  It is saying "Show only the rows
 // where the date is equal to the date filter we created above."  The triple equal sign "===" is testing for equality,
 // the date in table has to match our filter exactly!
@@ -118,11 +118,11 @@ function handleClick() {
    // Rebuild the table using the filtered data
   // @NOTE: If no date was entered, then filteredData will
   // just be the original tableData.
-  buildTable(filteredData);
+    buildTable(filteredData);
 }
 // Attach an event to listen for the form button
 d3.selectAll("#filter-btn").on("click", handleClick);
 
 // FINAL STEPS:
 // Build the table when the page loads
-//buildTable(tableData);
+buildTable(tableData);
