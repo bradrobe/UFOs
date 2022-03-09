@@ -12,7 +12,7 @@ The images below will show four different criteria that allow user to search inf
  ![This is an image]
 
 •	Image shows search by date:
- ![This is an image]
+ ![This is an image](https://github.com/bradrobe/UFOs/blob/main/static/images/search_date.png)
 
 
 •	Image based on shape:
