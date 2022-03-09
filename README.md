@@ -6,17 +6,17 @@ The UFO sightings project uses a dynamic webpage to display different informatio
 
 The images below will show four different criteria that allow user to search information on UFO sightings:
 •	Image shows five different criteria:
- https://github.com/bradrobe/UFOs/blob/main/static/images/multiple_criteria.png
+ ![This is an image](https://github.com/bradrobe/UFOs/blob/main/static/images/multiple_criteria.png)
 
 •	Image shows search by state:
- 
+ ![This is an image]
 
 •	Image shows search by date:
- 
+ ![This is an image]
 
 
 •	Image based on shape:
- 
+ ![This is an image]
 ## Summary:
 
 •	The webpage has some drawbacks, it does not recognize capital letters when entered as search filter.  When el cajon is typed in as El Cajon the search is not recognized and will not display the data.
