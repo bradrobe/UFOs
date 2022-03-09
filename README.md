@@ -9,7 +9,7 @@ The images below will show four different criteria that allow user to search inf
  ![This is an image](https://github.com/bradrobe/UFOs/blob/main/static/images/multiple_criteria.png)
 
 •	Image shows search by state:
- ![This is an image]
+ ![This is an image](https://github.com/bradrobe/UFOs/blob/main/static/images/search_state.png)
 
 •	Image shows search by date:
  ![This is an image](https://github.com/bradrobe/UFOs/blob/main/static/images/search_date.png)
