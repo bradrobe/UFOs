@@ -43,7 +43,7 @@ function updateFilters() {
     // 5. If a filter value was entered then add that filterId and value
     // to the filters list. Otherwise, clear that filter from the filters object.
     if (elementValue) {
-      filters[filterID] = elementValue;
+      filters[filterId] = elementValue;
     }
     else {
       delete filters[filterId];
@@ -62,9 +62,11 @@ function updateFilters() {
   
     // 9. Loop through all of the filters and keep any data that
     // matches the filter values
-    if (changedElement) {
-      filteredData = filteredData.filter(row => row.this === changedElement);
-  }    
+    Object.entries(filters).forEach(([key, value]) => {
+      filteredData = filteredData.filter(row => row[key] === value);
+    });
+    
+      
   
     // 10. Finally, rebuild the table using the filtered data
     buildTable(filteredData);    
